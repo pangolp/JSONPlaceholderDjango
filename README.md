@@ -4,9 +4,9 @@ Utilizando la información proporcionada por [Json Placeholder]( https://jsonpla
 
 Modelos que vamos a utilizar:
 
-/posts
-/comments
-/albums
-/photos
-/todos
-/users
+[ ] /posts
+[ ] /comments
+[ ] /albums
+[ ] /photos
+[ ] /todos
+[ ] /users
