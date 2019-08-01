@@ -15,7 +15,7 @@ class GeoSerializer(serializers.ModelSerializer):
 
 class AddressSerializer(serializers.ModelSerializer):
 
-	geo = serializers.PrimaryKeyRelatedField(read_only=True)
+	geo = GeoSerializer(read_only=True)
 
 	class Meta:
 		model = Address
@@ -31,8 +31,8 @@ class CompanySerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
 	
-	address = serializers.PrimaryKeyRelatedField(read_only=True)
-	company = serializers.PrimaryKeyRelatedField(read_only=True)
+	address = AddressSerializer(read_only=True)
+	company = CompanySerializer(read_only=True)
 
 	class Meta:
 		model = User
