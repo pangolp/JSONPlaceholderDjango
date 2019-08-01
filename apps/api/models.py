@@ -85,7 +85,7 @@ CHOICES_COMPLETED = (
 )
 
 
-class todo(models.Model):
+class Todo(models.Model):
 	userId = models.ForeignKey(User, on_delete=models.CASCADE, related_name='todo_user', editable=False)
 	title = models.CharField(max_length=100)
 	completed = models.CharField(max_length=5, choices=CHOICES_COMPLETED)
