@@ -43,7 +43,7 @@ class User(models.Model):
 
 
 class Post(models.Model):
-	userId = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_user', editable=False)
+	userId = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_user')
 	title = models.CharField(max_length=100)
 	body = models.TextField()
 
