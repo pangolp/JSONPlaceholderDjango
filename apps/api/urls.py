@@ -1,19 +1,24 @@
 from django.urls import include, path
+from rest_framework import routers
+
 from .views import (
-	GeoList, AddressList, CompanyList,
-	UserList, TodoList, PostList,
-	CommentList, AlbumList, PhotoList
+	GeoViewSet, AddressViewSet, CompanyViewSet,
+	UserViewSet, TodoViewSet, PostViewSet,
+	CommentViewSet, AlbumViewSet, PhotoViewSet
 )
 
 
+router = routers.DefaultRouter()
+router.register('geos', GeoViewSet)
+router.register('addresses', AddressViewSet)
+router.register('companies', CompanyViewSet)
+router.register('users', UserViewSet)
+router.register('todos', TodoViewSet)
+router.register('posts', PostViewSet)
+router.register('comments', CommentViewSet)
+router.register('albums', AlbumViewSet)
+router.register('photoes', PhotoViewSet)
+
 urlpatterns = [
-	path('geos/', GeoList.as_view()),
-	path('addresses/', AddressList.as_view()),
-	path('companies/', CompanyList.as_view()),
-	path('users/', UserList.as_view()),
-	path('todos/', TodoList.as_view()),
-	path('posts/', PostList.as_view()),
-	path('comments/', CommentList.as_view()),
-	path('albums/', AlbumList.as_view()),
-	path('photoes/', PhotoList.as_view()),
+    path('', include(router.urls)),
 ]
