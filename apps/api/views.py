@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
 
 from .serializers import (
 	GeoSerializer, AddressSerializer, CompanySerializer,
@@ -42,7 +41,6 @@ class TodoViewSet(viewsets.ModelViewSet):
 class PostViewSet(viewsets.ModelViewSet):
 	queryset = Post.objects.all()
 	serializer_class = PostSerializer
-	permission_classes = (IsAuthenticated,)
 
 
 class CommentViewSet(viewsets.ModelViewSet):
