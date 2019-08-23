@@ -15,7 +15,7 @@ class GeoSerializer(serializers.ModelSerializer):
 
 class AddressSerializer(serializers.ModelSerializer):
 
-	geo = GeoSerializer(read_only=True)
+	geo = GeoSerializer()
 
 	class Meta:
 		model = Address
@@ -30,9 +30,9 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-	
-	address = AddressSerializer(read_only=True)
-	company = CompanySerializer(read_only=True)
+
+	address = AddressSerializer()
+	company = CompanySerializer()
 
 	class Meta:
 		model = User
@@ -41,8 +41,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 class TodoSerializer(serializers.ModelSerializer):
 
-	userId = serializers.PrimaryKeyRelatedField(read_only=True)
-
 	class Meta:
 		model = Todo
 		fields = ('userId', 'id', 'title', 'completed')
@@ -50,16 +48,12 @@ class TodoSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 	
-	userId = serializers.PrimaryKeyRelatedField(read_only=True)
-
 	class Meta:
 		model = Post
 		fields = ('userId', 'id', 'title', 'body')
 
 
 class CommentSerializer(serializers.ModelSerializer):
-
-	postId = serializers.PrimaryKeyRelatedField(read_only=True)
 
 	class Meta:
 		model = Comment
@@ -68,16 +62,12 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class AlbumSerializer(serializers.ModelSerializer):
 
-	userId = serializers.PrimaryKeyRelatedField(read_only=True)
-
 	class Meta:
 		model = Album
 		fields = ('userId', 'id', 'title')
 
 
 class PhotoSerializer(serializers.ModelSerializer):
-
-	albumId = serializers.PrimaryKeyRelatedField(read_only=True)
 
 	class Meta:
 		model = Photo
